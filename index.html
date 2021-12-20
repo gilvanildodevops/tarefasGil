@@ -66,7 +66,7 @@
                                 <th style="border: 0px;">Excluir</th>
                             </tr>
                         </thead>
-                            <tbody class="table-p-1" ng-repeat="task in todoList" ng-class="{'completed': task.completed}">
+                            <tbody class="table-p-0" ng-repeat="task in todoList" ng-class="{'completed': task.completed}">
                                 <tr>
                                     <th scope="col" ng-class="{'completed': task.completed}"><input type="checkbox" ng-model="task.completed"/> - {{task.tarefa}} </th>
                                     <th scope="col" ng-class="{'completed': task.completed}"> {{task.setor}}</th>
