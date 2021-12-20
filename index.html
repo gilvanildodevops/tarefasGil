@@ -1,0 +1,86 @@
+<html ng-app="todoApp" >
+
+<head>
+    <meta charset="utf-8" />
+    <title>Projeto Tarefas Diária</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="jumbotron" class="container">
+        <div class="col-md-8 offset-2" ng-controller="MainCtrl">
+            <h1 style="text-align: center">Projeto Tarefas Diária</h1></br>
+            <form class="add-form" name="todoForm" ng-submit="addItem()">
+                <div class="row">
+                    <div class="col-md-6 col-xs-4">
+                        <div class="form-group">
+                            <label>Descreva sua Tarefa</label>
+                            <input type="text" name="tarefa" class="form-control" ng-model="task.tarefa" placeholder="Digite sua Tarefa..." required/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-4">
+                        <div class="form-group">
+                            <label>Selecione o Setor</label>
+                            <select id="transferTo" type="checkbox" name="Setor" class="form-control" ng-model="task.setor" ng-checked="true" required>
+                                <option value="">Selecione Setor</option>
+                                <option>TI</option>
+                                <option>RH</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-4">
+                        <div class="form-group">
+                            <label>Data de Inicio</label>
+                            <input type="date" name="datai" class="form-control" ng-model="task.datai" placeholder="Data Inicial..." required/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-4">
+                        <div class="form-group">
+                            <label>Data de Final</label>
+                            <input type="date" name="dataf" class="form-control" ng-model="task.dataf" placeholder="Data Final..." required/>
+                            <br />                            
+                        </div>
+                    </div>
+                    <button class="btn btn-block btn-success" ng-disabled="todoForm.$invalid" required>Incluir Tarefa</button>
+                </div>
+            </form>
+            <div>
+                <hr>
+            </div>
+            <div class="panel panel-primary">
+                <h2 style="text-align: center"> Relação de Tarefas </h2><br>
+                <div classe="col-sm-offset-1 col-sm-9">
+                    <table class="table">
+                        <thead class="table-primary">
+                            <tr>
+                                <th style="border: 0px;">Status</th>
+                                <th style="border: 0px;">Descrição</th>
+                                <th style="border: 0px;">Data Início</th>
+                                <th style="border: 0px;">Data Final</th>
+                                <th style="border: 0px;">Editar</th>
+                                <th style="border: 0px;">Excluir</th>
+                            </tr>
+                        </thead>
+                            <tbody class="table" ng-repeat="task in todoList" ng-class="{'completed': task.completed}">
+                                <tr>
+                                    <th scope="col" ng-class="{'completed': task.completed}"><input type="checkbox" ng-model="task.completed"/> - {{task.tarefa}} </th>
+                                    <th scope="col" ng-class="{'completed': task.completed}"> {{task.setor}}</th>
+                                    <th scope="col" ng-class="{'completed': task.completed}"> {{task.datai}}</th>
+                                    <th scope="col" ng-class="{'completed': task.completed}"> {{task.dataf}}</th>
+                                    <th><button class="btn btn-primary btn-default" ng-click="editarTasks()" >Editar</button></th>
+                                    <th><button class="btn btn-block btn-danger" ng-click="deleteTasks()" >Excluir</button></th>
+                                </tr>
+                            </tbody>
+                    </table>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
