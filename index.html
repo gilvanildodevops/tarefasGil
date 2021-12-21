@@ -58,8 +58,8 @@
                     <table class="table">
                         <thead class="table-primary">
                             <tr>
-                                <th style="border: 0px;">Status</th>
-                                <th style="border: 0px;">Descrição</th>
+                                <th style="border: 0px;">Status / Descrição</th>
+                                <th style="border: 0px;">Setor</th>
                                 <th style="border: 0px;">Data Início</th>
                                 <th style="border: 0px;">Data Final</th>
                                 <th style="border: 0px;">Editar</th>
@@ -69,7 +69,7 @@
                             <tbody class="table-p-0" ng-repeat="task in todoList" ng-class="{'completed': task.completed}">
                                 <tr>
                                     <th scope="col" ng-class="{'completed': task.completed}"><input type="checkbox" ng-model="task.completed"/> - {{task.tarefa}} </th>
-                                    <th scope="col" ng-class="{'completed': task.completed}" ng-if="checkbox.$invalid"> {{task.setor}}</th>
+                                    <th scope="col" ng-class="{'completed': task.completed}"> {{task.setor}}</th>
                                     <th scope="col" ng-class="{'completed': task.completed}"> {{task.datai}}</th>
                                     <th scope="col" ng-class="{'completed': task.completed}"> {{task.dataf}}</th>
                                     <th><button class="btn btn-primary" ng-click="editarTasks()">Editar</button></th>
