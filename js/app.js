@@ -57,13 +57,13 @@ app.controller('MainCtrl', ['$scope', function($scope, $http){
   }
 
   $scope.editarTasks = function() {
-    var newList = [];
-    $scope.todoList.forEach(function(item) {
-      if (!item.completed) {
-        newList.push(item);
+    if ($scope.newList) {
+      $scope.task.push($scope.editarTasks);
       }
-    });
-  }
+      $scope.newList = true;
+      $scope.editarTasks = {};
+    };
+
 
   $scope.deleteTasks = function() {
     var newList = [];
